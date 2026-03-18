@@ -1,0 +1,50 @@
+@keyframes skeletonLoading {
+  0% { background-color: #eeeeee; }
+  100% { background-color: #f7f7f7; }
+}
+
+.home-skeleton-wrap > div {
+  animation: skeletonLoading 1s infinite alternate;
+  border-radius: 10px;
+}
+
+/* HpTop (상단 헤더 영역) */
+.skeleton-hptop {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+/* Anatomy (메인 큰 박스) */
+.skeleton-big-box {
+  width: 100%;
+  height: 260px;
+  margin-bottom: 20px;
+}
+
+/* Gnb 아이콘 4개 */
+.skeleton-gnb {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.skeleton-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Tab 아이콘 4개 */
+.skeleton-tab {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.skeleton-tab-item {
+  width: 60px;
+  height: 20px;
+  border-radius: 6px;
+}

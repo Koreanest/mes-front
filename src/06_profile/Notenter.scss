@@ -1,0 +1,47 @@
+/* 이미지 스켈레톤 */
+.skeleton-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+/* 텍스트 스켈레톤 */
+.skeleton-text {
+    height: 20px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    margin: 8px 0;
+}
+.skeleton-text.short { width: 140px; }
+.skeleton-text.long { width: 220px; }
+
+/* 버튼 스켈레톤 */
+.skeleton-btn {
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    margin: 16px 0;
+}
+
+/* 콘텐츠 목록 스켈레톤 */
+.skeleton-line {
+    height: 40px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    margin: 10px 0;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

@@ -1,0 +1,48 @@
+@keyframes skeleton-loading {
+  0% { background-color: #ececec; }
+  100% { background-color: #f7f7f7; }
+}
+
+.skeleton-title,
+.skeleton-text,
+.skeleton-btn,
+.skeleton-img-small {
+  animation: skeleton-loading 1s infinite alternate;
+  border-radius: 8px;
+}
+
+/* 텍스트 라인 */
+.skeleton-title {
+  width: 80%;
+  height: 22px;
+  margin: 10px auto;
+}
+
+.skeleton-title.short {
+  width: 60%;
+}
+
+/* 프로필 작은 이미지 */
+.skeleton-img-small {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+/* 계정 텍스트 */
+.skeleton-text {
+  width: 140px;
+  height: 14px;
+  margin: 8px 0;
+}
+
+.skeleton-text.short {
+  width: 100px;
+}
+
+/* 버튼 */
+.skeleton-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+}

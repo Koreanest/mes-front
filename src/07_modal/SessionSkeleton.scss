@@ -1,0 +1,33 @@
+/* 공통 애니메이션 */
+@keyframes skeleton-loading {
+  0% { background-color: #e8e8e8; }
+  100% { background-color: #f4f4f4; }
+}
+
+.skeleton-title,
+.skeleton-text,
+.skeleton-btn {
+  animation: skeleton-loading 1s infinite alternate;
+  border-radius: 8px;
+}
+
+/* 제목 자리 */
+.skeleton-title {
+  width: 60%;
+  height: 22px;
+  margin: 10px auto;
+}
+
+/* 텍스트 자리 */
+.skeleton-text {
+  width: 80%;
+  height: 16px;
+  margin: 12px auto;
+}
+
+/* 버튼 */
+.skeleton-btn {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+}

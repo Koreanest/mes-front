@@ -1,0 +1,11 @@
+const LeftArrow = () => {
+    return(
+        <>
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.49992 9.95906L4.23992 6.69906C3.85492 6.31406 3.85492 5.68406 4.23992 5.29906L7.49992 2.03906" stroke="black" stroke-width="1.7" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+        </>
+    )
+}
+export default LeftArrow;

@@ -1,0 +1,85 @@
+@keyframes skeleton-loading {
+  0% { background-color: #e8e8e8; }
+  100% { background-color: #f3f3f3; }
+}
+
+.skeleton-hpheader,
+.skeleton-big-box,
+.skeleton-btn,
+.skeleton-title,
+.skeleton-text,
+.skeleton-img,
+.skeleton-btn-small,
+.skeleton-btn-half,
+.skeleton-line,
+.skeleton-footerbtn {
+  animation: skeleton-loading 1s infinite alternate;
+  border-radius: 8px;
+}
+
+/* PriceHeader */
+.skeleton-hpheader {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+/* paid-top */
+.skeleton-title.short {
+  width: 100px;
+  height: 20px;
+}
+.skeleton-btn-small {
+  width: 60px;
+  height: 28px;
+}
+
+/* paid-msg */
+.skeleton-text {
+  width: 80%;
+  height: 16px;
+  margin: 10px 0;
+}
+
+/* paid-price 이미지 */
+.skeleton-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+}
+
+/* paid-price 버튼 */
+.skeleton-btn {
+  width: 120px;
+  height: 36px;
+  margin-bottom: 10px;
+}
+
+/* paid-price 텍스트 */
+.skeleton-title {
+  width: 180px;
+  height: 24px;
+  margin-bottom: 6px;
+}
+
+/* 결제 금액/라인 */
+.skeleton-line {
+  width: 100%;
+  height: 14px;
+  margin: 6px 0;
+}
+
+/* 결제수단 버튼 */
+.skeleton-btn-half {
+  width: 48%;
+  height: 44px;
+  border-radius: 12px;
+}
+
+/* FooterBtn */
+.skeleton-footerbtn {
+  width: 100%;
+  height: 52px;
+  margin-top: 20px;
+  border-radius: 12px;
+}

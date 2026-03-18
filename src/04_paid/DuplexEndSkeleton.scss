@@ -1,0 +1,81 @@
+@keyframes skeleton-loading {
+  0% { background-color: #e8e8e8; }
+  100% { background-color: #f3f3f3; }
+}
+
+.skeleton-header,
+.skeleton-footer,
+.skeleton-img-large,
+.skeleton-img-small,
+.skeleton-title,
+.skeleton-btn,
+.skeleton-price,
+.skeleton-price-bar {
+  border-radius: 8px;
+  animation: skeleton-loading 1s infinite alternate;
+}
+
+/* Header */
+.skeleton-header {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.skeleton-footer {
+  width: 100%;
+  height: 52px;
+  margin-top: 20px;
+}
+
+/* 메인 이미지 */
+.skeleton-img-large {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+}
+
+/* 카드 이미지 */
+.skeleton-img-small {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+}
+
+/* 텍스트 */
+.skeleton-title {
+  width: 80%;
+  height: 18px;
+  margin: 5px 0;
+}
+.skeleton-title.short {
+  width: 60%;
+}
+.skeleton-title.shorter {
+  width: 40%;
+}
+
+/* 가격 영역 */
+.skeleton-price {
+  width: 50%;
+  height: 16px;
+  margin: 4px 0;
+}
+.skeleton-price-bar {
+  width: 40%;
+  height: 14px;
+  margin-right: 6px;
+}
+.skeleton-price-bar.small {
+  width: 30%;
+  height: 12px;
+}
+
+/* 버튼 */
+.skeleton-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  margin: 6px 0;
+}
