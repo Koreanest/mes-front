@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# 📦 ERP System (Shop 연동 재고 관리 시스템)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+본 ERP 시스템은 테니스 라켓 커머스 플랫폼(Shop)과 연동된 재고 관리 시스템으로,
+주문 데이터를 기반으로 재고를 실시간으로 처리하고 MES 생산 시스템과 연결되는 **중앙 허브 역할**을 수행합니다.
 
-## React Compiler
+👉 전체 구조: **Shop → ERP → MES**
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 🧱 System Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<p align="center">
+  <img src="./docs/shop_sys_arch.png" width="800"/>
+</p>
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* Shop: 주문 및 결제 처리
+* ERP: 재고 관리 및 입출고 처리
+* MES: 생산 관리
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+👉 ERP는 주문과 생산 사이의 데이터 흐름을 담당하는 핵심 시스템입니다.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔄 Core Flow
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<p align="center">
+  <img src="./docs/shop_flow_dg.png" width="800"/>
+</p>
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 📌 End-to-End 흐름
+
+1. 사용자 주문 생성 및 결제
+2. ERP에서 Outbound 생성 (출고)
+3. 재고 차감 처리
+4. 재고 부족 시 MES 생산 지시
+5. 생산 완료 후 ERP Inbound 처리 (입고)
+6. 재고 업데이트 및 출고 완료
+
+👉 주문부터 생산까지 자동 연결된 구조
+
+---
+
+## 🗂️ ERD (Entity Relationship Diagram)
+
+<p align="center">
+  <img src="./docs/erp_erd.png" width="800"/>
+</p>
+
+### 📌 핵심 구조
+
+* SKU 기반 재고 관리
+* 입고(Inbound) / 출고(Outbound) 중심 구조
+* 재고 변동 이력 관리 (Stock Movement)
+
+👉 모든 재고 흐름을 데이터로 추적 가능
+
+---
+
+## ⚙️ Tech Stack
+
+* Backend: Spring Boot, JPA
+* Database: MySQL (Docker)
+* Architecture: REST API
+
+---
+
+## 🧩 Key Features
+
+### 1️⃣ 재고 관리
+
+* SKU 단위 재고 관리
+* 실시간 재고 조회
+
+### 2️⃣ 입출고 처리
+
+* 주문 기반 자동 출고
+* 입고 및 재고 반영
+
+### 3️⃣ 재고 흐름 추적
+
+* IN / OUT 기준 재고 변화 관리
+* Stock Movement 기록
+
+### 4️⃣ 시스템 연동
+
+* Shop 주문 → ERP 재고 차감
+* 재고 부족 → MES 생산 지시
+* 생산 완료 → ERP 재고 반영
+
+---
+
+## 🔥 Key Design
+
+### ✔️ SKU 기반 통합 구조
+
+* 모든 시스템을 SKU 기준으로 연결
+
+### ✔️ 트랜잭션 기반 처리
+
+* 주문 → 재고 → 생산 흐름 일관성 유지
+
+### ✔️ 중앙 재고 허브
+
+* ERP에서 모든 재고 상태 관리
+
+---
+
+## 🚀 Future Improvements
+
+* Kafka 기반 비동기 처리
+* 자동 발주 시스템
+* 실시간 KPI 대시보드
+* ML 기반 수요 예측
+
+---
+
+## ✨ Summary
+
+* Shop–ERP–MES를 연결하는 통합 시스템
+* 재고와 생산이 자동으로 연동되는 구조
+* End-to-End 데이터 흐름 기반 설계
